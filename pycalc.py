@@ -1,3 +1,4 @@
+#Simple python prgram that demonstrate the use of calculator
 num1 = float(input("Enter first number: "))
 operator = input("Enter a valid operator: ")
 num2 = float(input("Enter second number: "))
