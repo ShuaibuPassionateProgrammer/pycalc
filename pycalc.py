@@ -1,21 +1,35 @@
-#Simple python prgram that demonstrate the use of calculator
-num1 = float(input("Enter first number: "))
-operator = input("Enter a valid operator: ")
-num2 = float(input("Enter second number: "))
+import os
 
-if operator == "+":
-	print(num1 + num2)
-elif operator == "*":
-	print(num1 * num2)
-elif operator == "-":
-	print(num1 - num2)
-elif operator == "/":
-	if num2 == 0:
-		print("Cannot divide by zero")
-	else: 
-		print(num1 / num2)
-else:
-	print("Invalid operator")
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-if input("Enter any value to exit, or press enter to continue: "):
-	break
+while True:
+    clear_screen()
+
+    try:
+        num1 = float(input("Enter first number: "))
+        op = input("Enter operator (+, -, *, /): ")
+        num2 = float(input("Enter second number: "))
+
+        if op == "+":
+            print(num1 + num2)
+        elif op == "*":
+            print(num1 * num2)
+        elif op == '-':
+            print(num1 - num2)
+        elif op == "/":
+            if num2 == 0:
+                print("Cannot divide by zero")
+            else:
+                print(num1 / num2)
+        else:
+            print("Invalid operator")
+
+    except ValueError:
+        print("Invalid input. Please enter numbers only.")
+    except Exception as e:
+        print(f"An unexpected error occured: {e}")
+
+    if input("Would you like to Continue? (y/n): ").lower() != 'y':
+        clear_screen()
+        break
